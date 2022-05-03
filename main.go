@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"log"
 	"net/http"
 	"os"
 )
@@ -17,6 +18,8 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.HTML(http.StatusOK, "Hello Docker! <3 V2")
 	})
+
+	log.Default()
 
 	e.GET("/ping", func(c echo.Context) error {
 		return c.JSON(http.StatusOK, struct{ Status string }{Status: "OK"})
